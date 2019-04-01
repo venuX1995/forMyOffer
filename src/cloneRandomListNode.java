@@ -26,11 +26,15 @@ public class cloneRandomListNode {
             pCur = pCur.next.next;
         }
         pCur = pHead;
-        RandomListNode pNewHead =pHead.next;
+        RandomListNode pCloneHead = pHead.next;
+        RandomListNode pNewHead =pCloneHead;
         while (pCur!=null){
-
+            pCur.next = pNewHead.next;
+            pCur = pCur.next;
+            pNewHead.next = pCur==null?null:pCur.next;
+            pNewHead = pNewHead.next;
         }
-        return pNewHead;
+        return pCloneHead;
     }
 
 }
