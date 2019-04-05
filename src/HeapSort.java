@@ -1,10 +1,9 @@
 public class HeapSort {
-    private static int[] buildMaxHeap(int[] arr){
+    private static void buildMaxHeap(int[] arr){
         int length = arr.length;
         for(int i =(length-2)/2;i>=0;i--){
             modifyToMaxHeap(arr,i,length);
         }
-        return arr;
     }
     private static void modifyToMaxHeap(int[] arr, int k, int length){
         int flag = arr[k];
