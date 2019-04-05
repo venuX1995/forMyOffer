@@ -21,7 +21,7 @@ public class HeapSort {
         arr[k] = flag;
     }
     private static void Heapsort(int[] arr){
-        arr = buildMaxHeap(arr);
+        buildMaxHeap(arr);
         for(int i=arr.length-1;i>=1;i--){
             int temp = arr[0];
             arr[0] = arr[i];
@@ -29,7 +29,7 @@ public class HeapSort {
             modifyToMaxHeap(arr,0,i);
         }
     }
-    public static void main(String args[]){
+    public static void main(String[] args){
         int[] arr = {1,4,2,7,8,3,9,43,25,66};
         Heapsort(arr);
         for(int num:arr){
