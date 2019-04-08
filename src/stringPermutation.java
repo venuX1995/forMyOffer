@@ -1,28 +1,38 @@
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+
 public class stringPermutation {
-    protected ArrayList<String> ans = new ArrayList();
-    //protected StringBuffer sb = new StringBuffer();
-    public ArrayList<String> Permutation(String str) {
-        if(str == null)
-            return null;
-        permutation(str,0);
+    public static ArrayList<String> Permutation(String str) {
+        ArrayList<String> ans = new ArrayList<>();
+        if(str==null||str.length()==0)
+            return ans;
+        HashSet<String> set = new HashSet<>();
+        char[] arr = str.toCharArray();
+        permutation(arr,0,ans,set);
         return ans;
     }
-    public String permutation(String str,int p){
-        StringBuffer sb = new StringBuffer();
-        if(p==str.length()){
-            ans.add(sb.toString());
+    public static void permutation(char[] str,int p,ArrayList<String> list,HashSet<String> set){
+        if(p==str.length && !set.contains(String.valueOf(str))){
+            set.add(String.valueOf(str));
+            list.add(String.valueOf(str));
+            Collections.sort(list);
         }else{
-            for(int i=p;i<str.length();i++){    //i遍历每一个字母排在头的情况
-                char temp = str.charAt(i);
-                str.charAt(i) = str.charAt(p);
-                str.charAt(p) = temp;
-                sb.append(str.charAt(p));
-                sb.append(permutation(str,p+1));
-                str.charAt(p) = str.charAt(i);
-                str.charAt(i) = temp;
+            for(int i =p;i<str.length;i++){
+                swap(str,i,p);
+                permutation(str,p+1,list,set);
+                swap(str,i,p);
             }
         }
-        return sb.toString();
+    }
+    public static void swap(char[] str,int i,int j){
+        char temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+    }
+    public static void main(String args[]){
+        String test = "abc";
+        ArrayList<String> ans = Permutation(test);
+        System.out.println(ans);
     }
 }
