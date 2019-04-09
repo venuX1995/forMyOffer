@@ -2,7 +2,7 @@ import java.util.*;
 
 import static java.lang.System.*;
 
-public class Scanner {
+public class ScannerDemo {
     public static void main(String args[]) {
         Scanner in = new Scanner(System.in);
         List<int[]> allArray = new LinkedList<>();
@@ -19,3 +19,4 @@ public class Scanner {
         }
     }
 }
+

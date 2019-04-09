@@ -1,4 +1,4 @@
-public class serializeAndDesrialize {
+public class serializeAndDeserialize {
     public class TreeNode {
         int val = 0;
         TreeNode left = null;
